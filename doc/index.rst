@@ -1,19 +1,22 @@
 .. _camera-adsc:
 
-Adsc camera
+ADSC camera
 -----------
 
 .. image:: adsc.jpg
 
 Introduction
 ````````````
-ADSC : Area Detector System Corporation
+ADSC stands for Area Detector System Corporation.
 
-The Lima module has been tested only with the 315r model:
+.. note:: The Lima module has been tested only with the 315r model.
 
 Prerequisite
 ````````````
-2 programs have to be running on the ADSC server: ccd_image_gather and det_api_workstation
+2 programs have to be running on the ADSC server:
+
+ - ``ccd_image_gather``
+ - ``det_api_workstation``
 
 Initialisation and Capabilities
 ````````````````````````````````
@@ -23,17 +26,17 @@ provide some important information about the developer's choices.
 Camera initialisation
 ......................
 
-Here are the available functions
+Here are the available functions:
 
-* SetHeaderParameters
-* UseStoredDarkImage
-* SetImageKind
-* SetLastImage
+* :cpp:func:`SetHeaderParameters`
+* :cpp:func:`UseStoredDarkImage`
+* :cpp:func:`SetImageKind`
+* :cpp:func:`SetLastImage`
 
 Std capabilites
 ................
 
-This plugin has been implemented in respect of the mandatory capabilites but with some limitations according 
+This plugin has been implemented in respect of the mandatory capabilites but with some limitations according
 to some programmer's  choices.  We only provide here extra information for a better understanding
 of the capabilities for the Adsc camera.
 
@@ -44,34 +47,33 @@ of the capabilities for the Adsc camera.
 
 * HwSync
 
-  trigger type supported are:
-	- IntTrig
-	
-  
+	- trigger type supported are: IntTrig
+
 Optional capabilites
-........................
+....................
 
 * HwBin
+
 	- 1 * 1
 	- 2 * 2
-	
+
 Configuration
-``````````````
-No Specific hardware configuration are needed
+`````````````
+No specific hardware configuration is needed.
 
 How to use
-````````````
+``````````
 here is the list of accessible fonctions to configure and use the ADSC detector:
 
 .. code-block:: cpp
 
-	void 	setHeaderParameters(const std::string& header);	
+	void 	setHeaderParameters(const std::string& header);
 	void	setStoredImageDark(bool value);
 	bool	getStoredImageDark(void);
 	void    setImageKind(int image_kind);
-	int     getImageKind(void);	
+	int     getImageKind(void);
 	void    setLastImage(int last_image);
-	int     getLastImage(void);	
+	int     getLastImage(void);
 
 	void                setFileName(const std::string& name);
 	const std::string&  getFileName(void);
